@@ -1,0 +1,71 @@
+spring:
+  profiles:
+    include: dbredis,commom
+
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: password
+    jedis:
+      pool:
+        max-idle: 10
+        min-idle: 3
+        max-active: 10
+        max-wait: -1ms
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: haha1803
+    password: 880309
+    url: jdbc:mysql://120.77.223.226:3306/new_otc?useUnicode=true&characterEncoding=utf-8
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      # 初始化时建立的连接数
+      initialSize: 5
+      # 最大连接数
+      max-active: 20
+        # 最小连接数
+      min-idle: 5
+        # 获取连接最大等待时间，单位：毫秒
+      max-wait: 2000
+        # 是否缓存preparedStatement
+      pool-prepared-statements: false
+          # 最大preparedStatement缓存数，当pool-prepared-statements=true时需要大于0
+      max-pool-prepared-statement-per-connection-size: -1
+          # 检测连接是否失效的sql
+      validation-query: SELECT 'x'
+          # 检测连接是否失效的超时时间，单位：秒
+      validation-query-timeout: 2
+            # 数据库连接池监控统计插件
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+              # 过滤掉如下请求
+        exclusions: '*.gif,*.png,*.jpg,*.html,*.js,*.css,*.ico,/druid/*'
+            # 数据库连接池监控页面插件
+      stat-view-servlet:
+        enabled: true
+        url-pattern: '/druid/*'
+        reset-enable: true
+        login-username: admin
+        login-password: admin
+
+dubbo:
+  application:
+    name: thirtyoneapp #应用名
+    id: thirtyoneapp
+    qos-enable: false
+  registry:
+    address: zookeeper://161.117.63.183:2181 #zookeeper地址
+  protocol:
+    name: dubbo
+    port: 20890 #dubbo服务暴露的端口
+    id: dubbo
+  scan:
+    base-packages: com.slkj.serviceimpl #扫描的包名
+
+server:
+  port: 8088
+
+
+
