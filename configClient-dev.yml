@@ -52,8 +52,6 @@ spring:
 
 dubbo:
   application:
-    name: thirtyoneapp #应用名
-    id: thirtyoneapp
     qos-enable: false
   registry:
     address: zookeeper://161.117.63.183:2181 #zookeeper地址
@@ -61,11 +59,6 @@ dubbo:
     name: dubbo
     port: 20890 #dubbo服务暴露的端口
     id: dubbo
-  scan:
-    base-packages: com.slkj.serviceimpl #扫描的包名
-
-server:
-  port: 8088
 
 
 
