@@ -59,6 +59,8 @@ dubbo:
     name: dubbo
     port: 20890 #dubbo服务暴露的端口
     id: dubbo
+  consumer:
+    check: false   #测试环境关闭服务治理
 
 
 
